@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "name": "discord-shop-backend",
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "controllers/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "models/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "routes/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "config/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    }
+  ],
+  "env": {
+    "MONGO_URI": "@your_mongodb_uri", 
+    "SESSION_SECRET": "@your_session_secret",
+    "DISCORD_CLIENT_ID": "@your_discord_client_id", 
+    "DISCORD_CLIENT_SECRET": "@your_discord_client_secret", 
+    "DISCORD_REDIRECT_URI": "https://your-frontend-domain.vercel.app/auth/discord/callback",
+    "PORT": "5000",
+    "FRONTEND_URL": "https://your-frontend-domain.vercel.app", 
+    "NEW_REG_WEBHOOK_URL": "@your_new_reg_webhook_url", 
+    "ORDER_CONFIRMATION_WEBHOOK_URL": "@your_order_confirmation_webhook_url", 
+    "ORDER_STATUS_CHANGE_WEBHOOK_URL": "@your_order_status_change_webhook_url", 
+    "REDEEM_REQUEST_WEBHOOK_URL": "@your_redeem_request_webhook_url", 
+    "REFERRAL_CREDIT_PERCENTAGE": "10",
+    "DEFAULT_STARTING_CREDITS": "50",
+    "BOT_API_URL": "https://your-bot-api-domain.com/api/send-dm",
+    "API_SECRET": "@your_api_secret",
+    "NODE_ENV": "production", 
+    
+    "REDIS_URL": "@your_redis_url" 
+  }
+}
